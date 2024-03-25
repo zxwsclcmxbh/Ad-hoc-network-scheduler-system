@@ -13,6 +13,19 @@ import (
 	"edge/nsm"
 )
 
+var Source = map[string]string{
+	"edge-node-1": "192.168.1.1",
+	"edge-node-2": "192.168.1.2",
+	"edge-node-3": "192.168.1.3",
+	"edge-node-4": "192.168.1.4",
+}
+
+var endpoint = "http://10.112.123.250:8080/reportNetwork"
+
+const timeInterval = 1
+const containerID = "frr"
+const Port = "8100"
+
 type NetworkData struct {
 	Name string
 	IP   string
@@ -25,17 +38,7 @@ type Nsm struct {
 	Delay string
 }
 
-var Source = map[string]string{
-	"edge-node-1": "192.168.1.1",
-	"edge-node-2": "192.168.1.2",
-	"edge-node-3": "192.168.1.3",
-	"edge-node-4": "192.168.1.4",
-}
-
-var endpoint = "http://10.112.123.250:8080/reportNetwork"
-
 func main() {
-	time.Sleep(1 * time.Second)
 	name, _ := os.Hostname()
 	res := &NetworkData{
 		Name: name,
@@ -43,21 +46,28 @@ func main() {
 	}
 
 	for {
-		time.Sleep(1 * time.Second)
-		nsms := nsm.GetNsm("frr")
-		log.Printf("nsm:%v ", nsms)
+		time.Sleep(timeInterval * time.Second)
+		nsms, err := nsm.GetNsm(containerID)
+		if err != nil {
+			break
+		}
+		log.Println("nsm:", nsms)
 		res.Nsms = []Nsm{}
 		for i := 0; i < len(nsms); i++ {
+			delayRes, err := delay.DelayClient(nsms[i], Port)
+			if err != nil {
+				break
+			}
 			nsm := &Nsm{
 				Name:  getKeyByValue(Source, nsms[i]),
 				IP:    nsms[i],
-				Delay: delay.DelayClient(nsms[i], "8100"),
+				Delay: delayRes,
 			}
 			res.Nsms = append(res.Nsms, *nsm)
 		}
-		err := sendPostRequest(endpoint, res)
+		err = sendPostRequest(endpoint, res)
 		if err != nil {
-			fmt.Println("Error:", err)
+			log.Println("err:", err)
 			return
 		}
 		log.Printf("report %v succ.", res)

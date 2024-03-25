@@ -9,11 +9,12 @@ import (
 	cli "github.com/docker/docker/client"
 )
 
-func GetNsm(containerID string) []string {
+func GetNsm(containerID string) ([]string, error) {
+	var res []string
 	// 创建 Docker 客户端
 	cli, err := cli.NewClientWithOpts(cli.WithAPIVersionNegotiation())
 	if err != nil {
-		panic(err)
+		return res, err
 	}
 	// 构建执行命令所需的参数
 	execConfig := types.ExecConfig{
@@ -24,16 +25,16 @@ func GetNsm(containerID string) []string {
 	// 在容器中执行命令
 	resp, err := cli.ContainerExecCreate(context.Background(), containerID, execConfig)
 	if err != nil {
-		panic(err)
+		return res, err
 	}
 	// 获取命令执行的输出
 	respHijacked, err := cli.ContainerExecAttach(context.Background(), resp.ID, types.ExecStartCheck{})
 	if err != nil {
-		panic(err)
+		return res, err
 	}
 	defer respHijacked.Close()
 	// 从输出中读取并处理结果
-	var addresses []string
+
 	scanner := bufio.NewScanner(respHijacked.Reader)
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -43,11 +44,11 @@ func GetNsm(containerID string) []string {
 		}
 		fields := strings.Fields(line)
 		if len(fields) > 6 {
-			addresses = append(addresses, fields[5])
+			res = append(res, fields[5])
 		}
 	}
 	if err := scanner.Err(); err != nil {
-		panic(err)
+		return res, err
 	}
-	return addresses
+	return res, nil
 }

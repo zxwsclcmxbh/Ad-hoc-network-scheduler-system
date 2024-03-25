@@ -1,14 +1,25 @@
 package main
 
 import (
-	"fmt"
 	"net"
+	"os"
+
+	"log"
 )
 
-func DelayServer(ip, port string) {
-	l, err := net.Listen("tcp", ip+":"+port)
+var Source = map[string]string{
+	"edge-node-1": "192.168.1.1",
+	"edge-node-2": "192.168.1.2",
+	"edge-node-3": "192.168.1.3",
+	"edge-node-4": "192.168.1.4",
+}
+
+const Port = "8100"
+
+func DelayServer(ip string) {
+	l, err := net.Listen("tcp", ip+":"+Port)
 	if err != nil {
-		fmt.Println(err)
+		log.Println("err:", err)
 		return
 	}
 	defer l.Close()
@@ -16,7 +27,7 @@ func DelayServer(ip, port string) {
 	for {
 		conn, err := l.Accept()
 		if err != nil {
-			fmt.Println(err)
+			log.Println("err:", err)
 			continue
 		}
 		go handleConnection(conn)
@@ -36,5 +47,7 @@ func handleConnection(conn net.Conn) {
 	}
 }
 func main() {
-	DelayServer("0.0.0.0", "8100")
+	name, _ := os.Hostname()
+	log.Println("delay server:", Source[name]+":"+Port)
+	DelayServer(Source[name])
 }
