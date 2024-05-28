@@ -1,0 +1,86 @@
+{
+  "intake-http-json": [
+    {
+      "name": "时间戳",
+      "key": "ts",
+      "options": [
+        { "label": "系统时间戳", "value": "ts" },
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    },
+    {
+      "name": "设备id",
+      "key": "equipment_id",
+      "options": [
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    },
+    {
+      "name": "数据",
+      "key": "value",
+      "options": [
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    }
+  ],
+  "intake-http-form": [
+    {
+      "name": "时间戳",
+      "key": "ts",
+      "options": [
+        { "label": "系统时间戳", "value": "ts" },
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    },
+    {
+      "name": "设备id",
+      "key": "equipment_id",
+      "options": [
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    }
+  ],
+  "intake-kafka": [
+    {
+      "name": "时间戳",
+      "key": "ts",
+      "options": [
+        { "label": "系统时间戳", "value": "ts" },
+        { "label": "kafka时间戳", "value": "kafkats" },
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    },
+    {
+      "name": "设备id",
+      "key": "equipment_id",
+      "options": [
+        { "label": "默认值", "value": "default" },
+        { "label": "kafka topic", "value": "kafkatopic" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    },
+    {
+      "name": "工作站id",
+      "key": "station_id",
+      "options": [
+        { "label": "默认值", "value": "default" },
+        { "label": "kafka topic", "value": "kafkatopic" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    },
+    {
+      "name": "数据",
+      "key": "value",
+      "options": [
+        { "label": "默认值", "value": "default" },
+        { "label": "自定义", "value": "custom" }
+      ]
+    }
+  ]
+}

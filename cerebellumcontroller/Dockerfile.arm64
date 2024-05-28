@@ -1,0 +1,22 @@
+FROM --platform=$BUILDPLATFORM crazymax/goxx:1.17 AS build
+RUN mkdir /code
+WORKDIR /code
+ADD . /code
+ENV GO111MODULE=auto
+ENV CGO_ENABLED=1
+ARG TARGETPLATFORM
+RUN GOPROXY=https://goproxy.cn,direct go mod download
+RUN goxx-apt-get install -y binutils gcc g++ pkg-config
+RUN goxx-go build -ldflags="-s -w" -o main ./main.go
+
+
+FROM --platform=$TARGETPLATFORM ubuntu:22.04 as prod
+
+
+COPY --from=build /code/main /
+
+EXPOSE 3000
+
+CMD ["/main"]
+
+

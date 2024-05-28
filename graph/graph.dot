@@ -1,0 +1,6 @@
+graph G {
+  EdgeNode1 -- EdgeNode2;
+  EdgeNode1 -- EdgeNode3;
+  EdgeNode2 -- EdgeNode3;
+  EdgeNode3 -- EdgeNode4;
+}

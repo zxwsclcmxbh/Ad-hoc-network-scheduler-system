@@ -1,0 +1,41 @@
+db: root:Aa123456!@tcp(127.0.0.1:3306)/brain_controller?charset=utf8mb4&parseTime=True&loc=Local
+nodeip:
+  - key: cloud-node
+    value: 192.168.1.4
+  - key: cloud-node-gpu
+    value: 192.168.227.183
+registry:
+  ip: 192.168.1.3
+  port: 5000
+gpunode: cloud-node-gpu
+imagemap:
+  - key: intake-kafka
+    value: 192.168.1.3:5000/iai-phm/common/intake:v7
+  - key: intake-http-form
+    value: 192.168.1.3:5000/iai-phm/common/intake:v7
+  - key: intake-http-json
+    value: 192.168.1.3:5000/iai-phm/common/intake:v7
+  - key: process-rollingwindow
+    value: 192.168.1.3:5000/iai-phm/common/rollingwindow:v7
+  - key: process-transpose
+    value: 192.168.1.3:5000/iai-phm/common/transpose:v5
+  - key: process-feature-extraction
+    value: 192.168.1.3:5000/iai-phm/bfd/feature-extraction:v6
+  - key: output
+    value: 192.168.1.3:5000/iai-phm/common/output:v7
+  - key: fork
+    value: 192.168.1.3:5000/iai-phm/common/fork:v1
+  - key: mlflow
+    value: 192.168.1.3:5000/iai/mlflow:latest
+  - key: addkey
+    value: 192.168.1.3:5000/iai-phm/common/addkey:v1
+phmendpoint: http://127.0.0.1:5051/component/getUser
+influxdb: http://127.0.0.1:8086
+minio:
+  url: 192.168.1.3:9000
+  username: iaiphm
+  password: Aa123456
+ingress:
+  baseurl: "http://192.168.1.4:30448/"
+  adminurl: "http://192.168.1.4:32458/"
+  apikey: "edd1c9f034335f136f87ad84b625c8f1"

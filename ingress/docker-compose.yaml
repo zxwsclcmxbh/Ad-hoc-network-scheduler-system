@@ -1,0 +1,13 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    restart: always
+    volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf
+        - ./frontend:/frontend
+        - ./logs:/etc/nginx/logs
+        # - /etc/localtime:/etc/localtime
+    ports: 
+        - "80:80"
+    command: "nginx -g 'daemon off;' "
