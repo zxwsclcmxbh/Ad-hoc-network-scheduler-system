@@ -5,7 +5,7 @@ nodeip:
   - key: cloud-node-gpu
     value: 192.168.227.183
 registry:
-  ip: 192.168.1.3
+  ip: 10.112.134.196
   port: 5000
 gpunode: cloud-node-gpu
 imagemap:
@@ -32,10 +32,11 @@ imagemap:
 phmendpoint: http://127.0.0.1:5051/component/getUser
 influxdb: http://127.0.0.1:8086
 minio:
-  url: 192.168.1.3:9000
+  url: 127.0.0.1:9000
   username: iaiphm
   password: Aa123456
 ingress:
   baseurl: "http://192.168.1.4:30448/"
   adminurl: "http://192.168.1.4:32458/"
   apikey: "edd1c9f034335f136f87ad84b625c8f1"
+
