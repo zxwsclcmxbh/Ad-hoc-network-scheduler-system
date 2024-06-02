@@ -10,7 +10,7 @@
               <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=9`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=2`" width="100%" height="400" frameborder="0" />
+              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717333072265&to=1717334872265&theme=light&viewPanel=2`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
           </el-tabs>
         </el-row>
