@@ -1,0 +1,120 @@
+{
+    "intake-kafka": {
+      "prop": "start",
+      "max_input":0,
+      "max_output":1,
+      "name": "Kafka数据源",
+      "desc": "监听Kafka消息队列",
+      "schema": {
+        "kafka": {
+          "type": "input",
+          "name": "Kafka服务器",
+          "placeholder": "cjl.hfzhang.wang:9092"
+        },
+        "kafka-topic": {
+          "type": "input",
+          "name": "Kafka主题",
+          "placeholder": "test"
+        }
+      }
+    },
+    "intake-http-form": {
+      "prop": "start",
+      "max_input":0,
+      "max_output":1,
+      "name": "HTTP数据源（文件）",
+      "desc": "监听http请求，接受form-data",
+      "schema": {
+        "metadata_field_name": {
+          "type": "input",
+          "name": "元数据字段名称",
+          "placeholder": "metadata"
+        }
+      }
+    },
+    "intake-http-json": {
+      "max_input":0,
+      "max_output":1,
+      "prop": "start",
+      "name": "HTTP数据源（json）",
+      "desc": "监听http请求，接受application/json",
+      "schema": {}
+    },
+    "process-rollingwindow": {
+      "max_input":-1,
+      "max_output":1,
+      "prop": "process",
+      "name": "滑动窗口",
+      "desc": "为数据提供滑动窗口",
+      "schema": {
+        "window_length": {
+          "type": "input",
+          "name": "窗口宽度",
+          "placeholder": 128
+        },
+        "slide_step": {
+          "type": "input",
+          "name": "滑动步长",
+          "placeholder": 128
+        },
+        "metadata_aggregation": {
+          "type": "choice",
+          "name": "元数据处理方式",
+          "value": "one",
+          "placeholder": "请选择元数据处理方式",
+          "choices": [
+            { "val": "one", "label": "只保留一个" },
+            { "val": "many", "label": "全部保留" }
+          ]
+        }
+      }
+    },
+    "process-transpose": {
+      "max_input":-1,
+      "max_output":1,
+      "prop": "process",
+      "name": "转置",
+      "desc": "数据转置",
+      "schema": {}
+    },
+    "process-feature-extraction": {
+      "max_input":-1,
+      "max_output":1,
+      "prop": "process",
+      "name": "轴承特征提取",
+      "desc": "对轴承数据做特征提取",
+      "schema": {}
+    },
+    "model": {
+      "max_input":-1,
+      "max_output":1,
+      "prop": "model",
+      "name": "调用模型",
+      "desc": "使用模型仓库中的模型",
+      "schema": {
+          "model":{
+              "type":"model",
+              "name":"选择模型镜像"
+          }
+      }
+    },
+    "output": {
+      "max_input":-1,
+      "max_output":0,
+      "prop": "output",
+      "id": "output",
+      "name": "算法输出采集",
+      "desc": "采集算法输出结果回传至云端",
+      "schema": {}
+    },
+    "fork": {
+      "max_input":1,
+      "max_output":-1,
+      "prop": "fork",
+      "id": "fork",
+      "name": "数据流复制",
+      "desc": "复制消息至多个输出",
+      "schema": {}
+    }
+  }
+  
