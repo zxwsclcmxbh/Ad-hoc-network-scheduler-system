@@ -35,7 +35,7 @@ module.exports = {
       errors: true
     },
     // before: require('./mock/mock-server.js'),
-    host: '10.112.134', // target host
+    host: '10.112.134.196', // target host
     port: port,
     // proxy:{'/api':{}},代理器中设置/api,项目中请求路径为/api的替换为target
     proxy: {
