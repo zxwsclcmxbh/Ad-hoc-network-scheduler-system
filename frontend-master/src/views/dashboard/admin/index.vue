@@ -7,20 +7,20 @@
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=9`" width="100%" height="400" frameborder="0" />
+              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=2`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717333072265&to=1717334872265&theme=light&viewPanel=2`" width="100%" height="400" frameborder="0" />
+              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=8`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
           </el-tabs>
         </el-row>
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=8`" width="100%" height="400" frameborder="0" />
+              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=9`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=4`" width="100%" height="400" frameborder="0" />
+              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=4`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
           </el-tabs>
         </el-row>
