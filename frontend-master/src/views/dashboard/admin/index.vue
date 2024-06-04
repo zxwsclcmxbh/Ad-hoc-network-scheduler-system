@@ -7,7 +7,7 @@
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&panelId=2" width="450" height="200" frameborder="0"></iframe>
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=9" width="450" height="200" frameborder="0"></iframe>
             </el-tab-pane>
             <el-tab-pane label="用量">
               <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=8`" width="100%" height="400" frameborder="0" />
