@@ -7,20 +7,20 @@
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=9" width="450" height="200" frameborder="0"></iframe>
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=9" width="100%" height="400" frameborder="0"></iframe>
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=8`" width="100%" height="400" frameborder="0" />
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=2" width="100%" height="400" frameborder="0"></iframe>
             </el-tab-pane>
           </el-tabs>
         </el-row>
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=9`" width="100%" height="400" frameborder="0" />
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=8" width="100%" height="400" frameborder="0"></iframe>
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe :src="`${grafana_base}d/1RS3pE4Vk/zhu-ye?orgId=1&from=1717425533372&to=1717429133372&theme=light&viewPanel=4`" width="100%" height="400" frameborder="0" />
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=4" width="100%" height="400" frameborder="0"></iframe>
             </el-tab-pane>
           </el-tabs>
         </el-row>
@@ -38,12 +38,12 @@
         <el-row :gutter="32">
           <el-col :xs="24" :sm="24" :lg="12">
             <div class="chart-wrapper">
-              <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=6`" width="100%" height="300" frameborder="0" />
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=6" width="100%" height="300" frameborder="0"></iframe>
             </div>
           </el-col>
           <el-col :xs="24" :sm="24" :lg="12">
             <div class="chart-wrapper">
-              <iframe :src="`${grafana_base}d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=7`" width="100%" height="300" frameborder="0" />
+              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=7" width="100%" height="300" frameborder="0"></iframe>
             </div>
           </el-col>
         </el-row>
