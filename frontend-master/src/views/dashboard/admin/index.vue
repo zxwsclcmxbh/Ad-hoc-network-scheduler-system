@@ -7,20 +7,21 @@
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=9" width="100%" height="400" frameborder="0"></iframe>
+
+              <iframe :src="`${grafana_base}/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&from=1718284004452&to=1718285804452&theme=light&panelId=9`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=2" width="100%" height="400" frameborder="0"></iframe>
+              <iframe :src="`${grafana_base}/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&from=1718284036267&to=1718285836267&theme=light&panelId=2`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
           </el-tabs>
         </el-row>
         <el-row style="padding:16px 16px 0;margin-bottom:32px;">
           <el-tabs type="border-card">
             <el-tab-pane label="百分比">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=8" width="100%" height="400" frameborder="0"></iframe>
+              <iframe :src="`${grafana_base}/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&from=1718284055086&to=1718285855087&theme=light&panelId=8`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
             <el-tab-pane label="用量">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=4" width="100%" height="400" frameborder="0"></iframe>
+              <iframe :src="`${grafana_base}/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&from=1718284076340&to=1718285876340&theme=light&panelId=4`" width="100%" height="400" frameborder="0" />
             </el-tab-pane>
           </el-tabs>
         </el-row>
@@ -38,12 +39,12 @@
         <el-row :gutter="32">
           <el-col :xs="24" :sm="24" :lg="12">
             <div class="chart-wrapper">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=6" width="100%" height="300" frameborder="0"></iframe>
+              <iframe :src="`${grafana_base}/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&from=1718284104279&to=1718285904279&theme=light&panelId=6`" width="100%" height="300" frameborder="0" />
             </div>
           </el-col>
           <el-col :xs="24" :sm="24" :lg="12">
             <div class="chart-wrapper">
-              <iframe src="http://10.112.134.196:30505/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&theme=light&panelId=7" width="100%" height="300" frameborder="0"></iframe>
+              <iframe :src="`${grafana_base}/d-solo/1RS3pE4Vk/zhu-ye?orgId=1&refresh=5s&from=1718284124441&to=1718285924441&theme=light&panelId=7`" width="100%" height="300" frameborder="0" />
             </div>
           </el-col>
         </el-row>
@@ -89,7 +90,7 @@ export default {
   data() {
     return {
       lineChartData: lineChartData.newVisitis,
-      grafana_base: 'http://10.112.134.196:30505/'
+      grafana_base: 'http://10.112.134.196:30528'
     }
   },
   methods: {
