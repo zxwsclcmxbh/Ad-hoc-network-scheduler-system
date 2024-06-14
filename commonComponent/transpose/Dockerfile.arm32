@@ -1,0 +1,8 @@
+FROM python:3.7
+# FROM bitnami/pytorch:1.12.1
+RUN mkdir /workspace
+WORKDIR /workspace
+COPY . /workspace
+RUN pip3 install -r requirements.txt -i https://www.piwheels.org/simple
+# RUN pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+ENTRYPOINT [ "python3","main.py" ]
