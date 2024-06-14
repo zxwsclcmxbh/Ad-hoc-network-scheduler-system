@@ -1,0 +1,3 @@
+[submodule "EdgeSDK"]
+	path = EdgeSDK
+	url = git@gitlab.com:BUPT-IAI/edgesdk/edegsdk.git

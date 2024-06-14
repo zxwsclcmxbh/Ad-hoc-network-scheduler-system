@@ -1,0 +1,111 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cerebellum-cloud-node-gpu
+  labels:
+    app: cerebellum-cloud-node-gpu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cerebellum-cloud-node-gpu
+  template:
+    metadata:
+      labels:
+        app: cerebellum-cloud-node-gpu
+    spec:
+      nodeName: cloud-node-gpu
+      containers:
+      - name: cerebellum
+        image: 10.112.134.196:5000/iai/cerebellumcontroller 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: dbfile
+            value: /db/route.sqlite
+          - name: port
+            value: "3000"
+          - name: filebase
+            value: /data/
+          - name: redisaddr
+            value: redis-svc-cloud-node.iai.svc.cluster.local:6379
+          - name: nodename
+            valueFrom:
+              fieldRef: 
+                fieldPath:
+                  spec.nodeName
+          - name: brainaddr
+            value: ws://10.112.134.196:8080/api/brainController/ws
+        volumeMounts:
+          - mountPath: "/data"
+            name: "data"
+          - mountPath: "/db"
+            name: db
+      volumes:
+        - name: data
+          hostPath: 
+            path: /data/cerebellum/data/
+            type: DirectoryOrCreate
+        - name: db
+          hostPath: 
+            path: /data/cerebellum/conf/
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cerebellum-svc-cloud-node-gpu
+  namespace: iai
+  labels:
+    app: cerebellum-svc-cloud-node-gpu
+spec:
+  selector:
+    app: cerebellum-cloud-node-gpu
+  ports:
+    - name: cerebellum
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment-cloud-node-gpu
+  labels:
+    app: redis-cloud-node-gpu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-cloud-node-gpu
+  template:
+    metadata:
+      labels:
+        app: redis-cloud-node-gpu
+    spec:
+      nodeName: cloud-node-gpu
+      containers:
+      - name: redis
+        image: redis
+        ports:
+        - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-svc-cloud-node-gpu
+  namespace: iai
+  labels:
+    app: redis-svc-cloud-node-gpu
+spec:
+  selector:
+    app: redis-cloud-node-gpu
+  ports:
+    - name: redis
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
+  type: ClusterIP

@@ -1,0 +1,8 @@
+pandas
+scikit-learn
+redis
+flask
+scipy
+PyWavelets
+dynaconf
+itsdangerous==2.0.1
